@@ -1,0 +1,78 @@
+====================================================================
+  GITHUB PAGES DEPLOYMENT - COPY THESE COMMANDS
+====================================================================
+
+STEP 1: Create repository on GitHub.com
+----------------------------------------
+1. Go to: https://github.com/new
+2. Repository name: mobile-repair-pro
+3. Make it PUBLIC
+4. DO NOT add README, .gitignore, or license
+5. Click "Create repository"
+
+
+STEP 2: Push your code (REPLACE YOUR-USERNAME)
+-----------------------------------------------
+cd /workspaces/default/code
+
+git remote add origin https://github.com/YOUR-USERNAME/mobile-repair-pro.git
+
+git push -u origin main
+
+
+STEP 3: Enable GitHub Pages
+----------------------------
+1. Go to your repo on GitHub
+2. Click "Settings" tab
+3. Click "Pages" in left sidebar
+4. Under "Build and deployment":
+   - Source: Select "GitHub Actions"
+5. That's it! The workflow is already configured.
+
+
+STEP 4: Wait for deployment (2-3 minutes)
+------------------------------------------
+1. Go to "Actions" tab in your repo
+2. You'll see "Deploy to GitHub Pages" running
+3. Wait for green checkmark ✅
+
+
+STEP 5: Get your live URL
+-------------------------
+Your website will be live at:
+
+https://YOUR-USERNAME.github.io/mobile-repair-pro/
+
+Share this link with customers!
+
+
+====================================================================
+  TROUBLESHOOTING
+====================================================================
+
+If images don't show:
+1. Edit vite.config.ts
+2. Change: base: '/'
+   To: base: '/mobile-repair-pro/'
+3. Commit and push again
+
+
+If it says "Page not found":
+- Wait 2-3 minutes for first deployment
+- Check Actions tab for any errors
+- Make sure repo is PUBLIC
+
+
+====================================================================
+  UPDATING YOUR WEBSITE
+====================================================================
+
+Whenever you want to update the website:
+
+git add .
+git commit -m "Update website"
+git push
+
+It will automatically redeploy!
+
+====================================================================
