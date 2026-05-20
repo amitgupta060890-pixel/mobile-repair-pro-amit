@@ -165,7 +165,7 @@ Please contact me with a free quote.`;
                 <Smartphone className="w-6 h-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Mobile Repair Pro
+                Chetan Gupta Mobile Shop - Repair Mobile In Pro Style
               </h1>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -225,7 +225,7 @@ Please contact me with a free quote.`;
             <div className="relative hidden md:block">
               <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 to-pink-500 rounded-3xl transform rotate-6 opacity-20"></div>
               <img
-                src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&q=80&w=1080"
                 alt="Mobile repair technician"
                 className="relative rounded-3xl shadow-2xl object-cover w-full h-[500px]"
               />
@@ -293,7 +293,7 @@ Please contact me with a free quote.`;
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="https://images.unsplash.com/photo-1746005514011-ea00280f3b6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1746005514011-ea00280f3b6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&q=80&w=1080"
                 alt="iPhone repair components"
                 className="rounded-2xl shadow-2xl object-cover w-full h-[400px]"
               />
@@ -397,12 +397,12 @@ Please contact me with a free quote.`;
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1611396000732-f8c9a933424f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1611396000732-f8c9a933424f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&q=80&w=1080"
                 alt="Repair tools"
                 className="rounded-2xl shadow-lg object-cover h-64"
               />
               <img
-                src="https://images.unsplash.com/photo-1617299516258-eb06985065ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1617299516258-eb06985065ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&q=80&w=1080"
                 alt="Smartphone repair"
                 className="rounded-2xl shadow-lg object-cover h-64 mt-8"
               />
@@ -440,7 +440,7 @@ Please contact me with a free quote.`;
               </div>
               <h3 className="text-xl font-bold mb-2">Visit Us</h3>
               <a 
-                href="https://www.google.com/maps/place/Chetan+Mobile+Shopee/@21.1340814,79.0666583,12z/data=!4m10!1m2!2m1!1sChetan+Mobile+Shopee!3m6!1s0x3bd4c7ea2070ca71:0x62e4225ac575f85!8m2!3d21.1751238!4d79.1407053!15sChRDaGV0YW4gTW9iaWxlIFNob3BlZVoWIhRjaGV0YW4gbW9iaWxlIHNob3BlZZIBEWVsZWN0cm9uaWNzX3N0b3Jl4AEA!16s%2Fg%2F11gk6vsb5x?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/place/Chetan+Mobile+Shopee/@21.1340814,79.0666583,12z/data=!4m10!1m2!2m1!1sChetan+Mobile+Shopee!3m6!1s0x3bd4c7ea2070ca71:0x62e4225ac575f85!8m2!3d21.1340814!4d79.0666583!16s%2Fg%2F1hm3p7kl7!2m2!1d79.0666583!2d21.1340814"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-lg hover:text-blue-200 transition"
