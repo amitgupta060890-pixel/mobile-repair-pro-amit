@@ -5,6 +5,12 @@ export default function App() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
   const [showWelcomeToast, setShowWelcomeToast] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    deviceModel: '',
+    issueDescription: ''
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,6 +39,50 @@ export default function App() {
   const handleCallNow = () => {
     window.location.href = 'tel:7020595693';
   };
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Check if all fields are filled
+    if (!formData.name || !formData.phone || !formData.deviceModel || !formData.issueDescription) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    // Create WhatsApp message with form details
+    const message = `
+*NEW INQUIRY FROM WEBSITE*
+
+*Name:* ${formData.name}
+*Phone:* ${formData.phone}
+*Device Model:* ${formData.deviceModel}
+*Issue Description:* ${formData.issueDescription}
+
+Please contact me with a free quote.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/917020595693?text=${encodedMessage}`;
+
+    // Open WhatsApp
+    window.open(whatsappURL, '_blank');
+
+    // Reset form
+    setFormData({
+      name: '',
+      phone: '',
+      deviceModel: '',
+      issueDescription: ''
+    });
+  };
+
   const services = [
     {
       icon: <Smartphone className="w-8 h-8" />,
@@ -161,7 +211,7 @@ export default function App() {
             <div className="relative hidden md:block">
               <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 to-pink-500 rounded-3xl transform rotate-6 opacity-20"></div>
               <img
-                src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3Nzg4NjAwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
                 alt="Mobile repair technician"
                 className="relative rounded-3xl shadow-2xl object-cover w-full h-[500px]"
               />
@@ -229,7 +279,7 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="https://images.unsplash.com/photo-1746005514011-ea00280f3b6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3Nzg4NjAwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="https://images.unsplash.com/photo-1746005514011-ea00280f3b6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
                 alt="iPhone repair components"
                 className="rounded-2xl shadow-2xl object-cover w-full h-[400px]"
               />
@@ -333,12 +383,12 @@ export default function App() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1611396000732-f8c9a933424f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3Nzg4NjAwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="https://images.unsplash.com/photo-1611396000732-f8c9a933424f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
                 alt="Repair tools"
                 className="rounded-2xl shadow-lg object-cover h-64"
               />
               <img
-                src="https://images.unsplash.com/photo-1617299516258-eb06985065ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3Nzg4NjAwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="https://images.unsplash.com/photo-1617299516258-eb06985065ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHRvb2xzfGVufDB8fHx8fDA%3D&ixlib=rb-4.0.3&q=80&w=1000"
                 alt="Smartphone repair"
                 className="rounded-2xl shadow-lg object-cover h-64 mt-8"
               />
@@ -382,22 +432,30 @@ export default function App() {
           {/* Contact Form */}
           <div className="mt-12 max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
-            <form className="space-y-6">
+            <form onSubmit={handleFormSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Name</label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                     placeholder="Your name"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Phone</label>
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleFormChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                     placeholder="Your phone"
+                    required
                   />
                 </div>
               </div>
@@ -405,23 +463,31 @@ export default function App() {
                 <label className="block text-gray-700 font-medium mb-2">Device Model</label>
                 <input
                   type="text"
+                  name="deviceModel"
+                  value={formData.deviceModel}
+                  onChange={handleFormChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                   placeholder="e.g., iPhone 13, Samsung Galaxy S21"
+                  required
                 />
               </div>
               <div>
                 <label className="block text-gray-700 font-medium mb-2">Issue Description</label>
                 <textarea
+                  name="issueDescription"
+                  value={formData.issueDescription}
+                  onChange={handleFormChange}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                   placeholder="Describe the issue with your device"
+                  required
                 ></textarea>
               </div>
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105"
               >
-                Get Free Quote
+                Send via WhatsApp
               </button>
             </form>
           </div>
@@ -453,7 +519,7 @@ export default function App() {
             <div className="space-y-3">
               <button
                 onClick={handleWhatsApp}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-5 h-5" />
                 Contact via WhatsApp
@@ -461,7 +527,7 @@ export default function App() {
 
               <button
                 onClick={handleCallNow}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5" />
                 Call Now: 7020595693
