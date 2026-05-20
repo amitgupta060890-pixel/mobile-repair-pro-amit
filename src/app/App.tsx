@@ -11,6 +11,7 @@ export default function App() {
     deviceModel: '',
     issueDescription: ''
   });
+  const [formError, setFormError] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,20 +47,32 @@ export default function App() {
       ...prev,
       [name]: value
     }));
+    setFormError('');
   };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Check if all fields are filled
-    if (!formData.name || !formData.phone || !formData.deviceModel || !formData.issueDescription) {
-      alert('Please fill in all fields');
+    
+    // Validation
+    if (!formData.name.trim()) {
+      setFormError('Please enter your name');
+      return;
+    }
+    if (!formData.phone.trim()) {
+      setFormError('Please enter your phone number');
+      return;
+    }
+    if (!formData.deviceModel.trim()) {
+      setFormError('Please enter your device model');
+      return;
+    }
+    if (!formData.issueDescription.trim()) {
+      setFormError('Please describe the issue');
       return;
     }
 
     // Create WhatsApp message with form details
-    const message = `
-*NEW INQUIRY FROM WEBSITE*
+    const message = `*NEW INQUIRY FROM WEBSITE*
 
 *Name:* ${formData.name}
 *Phone:* ${formData.phone}
@@ -71,7 +84,7 @@ Please contact me with a free quote.`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/917020595693?text=${encodedMessage}`;
 
-    // Open WhatsApp
+    // Open WhatsApp in new window
     window.open(whatsappURL, '_blank');
 
     // Reset form
@@ -81,6 +94,7 @@ Please contact me with a free quote.`;
       deviceModel: '',
       issueDescription: ''
     });
+    setFormError('');
   };
 
   const services = [
@@ -418,24 +432,38 @@ Please contact me with a free quote.`;
                 <Mail className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Email Us</h3>
-              <p className="text-lg">info@mobilerepairpro.com</p>
+              <p className="text-lg">guptachetan599@gmail.com</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Visit Us</h3>
-              <p className="text-lg">Your Location Here</p>
+              <a 
+                href="https://www.google.com/maps/place/Chetan+Mobile+Shopee/@21.1340814,79.0666583,12z/data=!4m10!1m2!2m1!1sChetan+Mobile+Shopee!3m6!1s0x3bd4c7ea2070ca71:0x62e4225ac575f85!8m2!3d21.1751238!4d79.1407053!15sChRDaGV0YW4gTW9iaWxlIFNob3BlZVoWIhRjaGV0YW4gbW9iaWxlIHNob3BlZZIBEWVsZWN0cm9uaWNzX3N0b3Jl4AEA!16s%2Fg%2F11gk6vsb5x?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg hover:text-blue-200 transition"
+              >
+                Chetan Mobile Shopee
+              </a>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="mt-12 max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+            
+            {formError && (
+              <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                {formError}
+              </div>
+            )}
+
             <form onSubmit={handleFormSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Name</label>
+                  <label className="block text-gray-700 font-medium mb-2">Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -443,11 +471,10 @@ Please contact me with a free quote.`;
                     onChange={handleFormChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                     placeholder="Your name"
-                    required
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Phone</label>
+                  <label className="block text-gray-700 font-medium mb-2">Phone *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -455,12 +482,11 @@ Please contact me with a free quote.`;
                     onChange={handleFormChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                     placeholder="Your phone"
-                    required
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Device Model</label>
+                <label className="block text-gray-700 font-medium mb-2">Device Model *</label>
                 <input
                   type="text"
                   name="deviceModel"
@@ -468,11 +494,10 @@ Please contact me with a free quote.`;
                   onChange={handleFormChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                   placeholder="e.g., iPhone 13, Samsung Galaxy S21"
-                  required
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Issue Description</label>
+                <label className="block text-gray-700 font-medium mb-2">Issue Description *</label>
                 <textarea
                   name="issueDescription"
                   value={formData.issueDescription}
@@ -480,16 +505,19 @@ Please contact me with a free quote.`;
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition text-gray-900"
                   placeholder="Describe the issue with your device"
-                  required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2"
               >
+                <MessageCircle className="w-5 h-5" />
                 Send via WhatsApp
               </button>
             </form>
+            <p className="text-center text-sm text-gray-600 mt-4">
+              💬 Your message will be sent directly to our WhatsApp
+            </p>
           </div>
         </div>
       </section>
@@ -636,7 +664,7 @@ Please contact me with a free quote.`;
                 </li>
                 <li className="flex items-center space-x-2">
                   <Mail className="w-4 h-4" />
-                  <span>info@mobilerepairpro.com</span>
+                  <span>guptachetan599@gmail.com</span>
                 </li>
               </ul>
             </div>
